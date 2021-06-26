@@ -9,7 +9,7 @@ export const getAllRestaurants = async (req, res) => {
     const client = yelp.client(process.env.API_KEY)
     client.search({
         term: 'restaurants',
-        location: "paris",
+        location: "485 7th Ave, New York, NY 10018",
     }).then(response => {
         res.send(response.jsonBody)
     }).catch(e => {
