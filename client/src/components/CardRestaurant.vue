@@ -13,18 +13,7 @@
                     <div class="flex items-center flex-row justify-between w-full">
                         <div class="text-left">
                             <div class="flex items-center">
-                                <svg v-for="star in parseInt(restaurant.rating)" :key="star"
-                                     class=" w-4 h-4 fill-current text-yellow-500"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20">
-                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                                </svg>
-                                <svg v-for="star1 in 5 - parseInt(restaurant.rating)" :key="star1"
-                                     class=" w-4 h-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20">
-                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-                                </svg>
-                                <p class="ml-2">{{restaurant.review_count}}</p>
+                               <Stars :restaurant="restaurant" />
                             </div>
                         </div>
                         <div class="self-center">
@@ -42,19 +31,22 @@
                         </div>
                         <div class="flex sm:flex-col items-center justify-around w-5/12">
                             <a class="sm:mb-1 sm:w-full py-1 px-2 bg-gray-600 rounded text-white text-sm transition-all duration-300 hover:bg-gray-900" :href="restaurant.url">Order</a>
-                            <a class="sm:mt-1 sm:w-full py-1 px-2 bg-gray-600 rounded text-white text-sm transition-all duration-300 hover:bg-gray-900" :href="restaurant.url">Details</a>
+                            <router-link class="sm:mt-1 sm:w-full py-1 px-2 bg-gray-600 rounded text-white text-sm transition-all duration-300 hover:bg-gray-900" :to="{name: 'Details', params:{id: restaurant.id}}">
+                            Details
+                            </router-link>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
 
 <script>
+    import Stars from "./Stars";
     export default {
         name: "CardRestaurant",
+        components: {Stars},
         props: ['restaurants']
     }
 </script>

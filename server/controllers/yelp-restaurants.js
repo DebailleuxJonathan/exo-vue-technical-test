@@ -17,4 +17,13 @@ export const getAllRestaurants = async (req, res) => {
     });
 }
 
+export const getDetailRestaurant = async (req, res) => {
+    const client = yelp.client(process.env.API_KEY)
+    client.business(req.params.id).then(response => {
+        res.send(response.jsonBody)
+    }).catch(e => {
+        console.log(e);
+    });
+}
+
 export default router
