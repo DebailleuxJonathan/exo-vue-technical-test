@@ -13,7 +13,10 @@ npm run serve
 ```
 # server
 in the server folder :
+
 ## Project setup
+#####Don't forget to add your API_KEY of yelp in .env File
+
 ```
 npm install
 ```

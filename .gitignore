@@ -13,6 +13,8 @@ src/main/vue-for-idea.jar
 *.ipr
 *.iws
 
+.env
+
 ## Plugin-specific files:
 
 # IntelliJ
